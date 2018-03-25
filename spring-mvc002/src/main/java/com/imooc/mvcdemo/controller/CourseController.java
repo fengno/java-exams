@@ -36,9 +36,9 @@ public class CourseController {
 	
 	private static Logger log = LoggerFactory.getLogger(CourseController.class);
 
+	@Autowired
 	private CourseService courseService;
 
-	@Autowired
 	public void setCourseService(CourseService courseService) {
 		this.courseService = courseService;
 	}
@@ -91,6 +91,7 @@ public class CourseController {
 		
 		//在此进行业务操作，比如数据库持久化
 		course.setCourseId(123);
+		// 重定向redirect或者请求转发forward实现页面跳转
 		return "redirect:view2/"+course.getCourseId();
 	}
 	

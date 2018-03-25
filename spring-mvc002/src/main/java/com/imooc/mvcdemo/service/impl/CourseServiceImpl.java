@@ -1,4 +1,4 @@
-﻿package com.imooc.mvcdemo.service.impl;
+package com.imooc.mvcdemo.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import com.imooc.mvcdemo.model.Course;
 import com.imooc.mvcdemo.service.CourseService;
 
 
-@Service("courseService")
+@Service
 public class CourseServiceImpl implements CourseService {
 
 	public Course getCoursebyId(Integer courseId) {
@@ -77,8 +77,5 @@ public class CourseServiceImpl implements CourseService {
 		chapterList.add(chapter);
 		
 	}
-
-
-
 
 }
