@@ -25,3 +25,10 @@ hs_err_pid*
 target
 *.prefs
 spring-mvc002/.tern-project
+spring-mvc001/.classpath
+spring-mvc001/.settings/.jsdtscope
+*.component
+spring-mvc001/.project
+spring-mvc001/.settings/org.eclipse.wst.jsdt.ui.superType.name
+*.container
+spring-mvc001/.settings/org.eclipse.wst.common.project.facet.core.xml
