@@ -9,6 +9,7 @@
 		<module>jdbc001</module>
 		<module>spring-mvc001</module>
 		<module>sb001</module>
+		<module>sb002</module>
 	</modules>
 	
 	<groupId>com.learning</groupId>
