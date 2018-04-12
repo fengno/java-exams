@@ -27,27 +27,37 @@ public class TAreaDaoTest {
 	}
 
 	@Test
-	@Ignore
 	public void testQueryAreaById() {
-		fail("Not yet implemented");
+		TArea area = dao.queryAreaById(1);
+		Assert.assertEquals("东苑", area.getAreaName());
 	}
 
 	@Test
 	@Ignore
 	public void testInsertArea() {
-		fail("Not yet implemented");
+		TArea area = new TArea();
+		area.setAreaName("南苑");
+		area.setPriority(1);
+		int effectedNm = dao.insertArea(area);
+		Assert.assertEquals(1, effectedNm);
 	}
 
 	@Test
 	@Ignore
 	public void testUpdateArea() {
-		fail("Not yet implemented");
+		TArea area = new TArea();
+		area.setAreaName("西苑");
+		area.setAreaId(3);
+		int effectedNm = dao.updateArea(area);
+		Assert.assertEquals(1, effectedNm);
+		
 	}
 
 	@Test
 	@Ignore
 	public void testDeleteArea() {
-		fail("Not yet implemented");
+		int effectedNm = dao.deleteArea(3);
+		Assert.assertEquals(1, effectedNm);
 	}
 
 }
