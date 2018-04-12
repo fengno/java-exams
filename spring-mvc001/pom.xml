@@ -8,7 +8,32 @@
   <build>
     <finalName>spring-mvc001</finalName>
   </build>
+  <parent>
+  	<groupId>com.learning</groupId>
+  	<artifactId>java-exams</artifactId>
+  	<version>0.0.1-SNAPSHOT</version>
+  </parent>
   <dependencies>
+  		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.44</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.5</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.0.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.1.41</version>
+		</dependency>
   	<dependency>
   		<groupId>org.apache.httpcomponents</groupId>
   		<artifactId>httpclient</artifactId>
@@ -25,9 +50,4 @@
   		<version>4.12</version>
   	</dependency>
   </dependencies>
-  <parent>
-  	<groupId>com.learning</groupId>
-  	<artifactId>java-exams</artifactId>
-  	<version>0.0.1-SNAPSHOT</version>
-  </parent>
 </project>
