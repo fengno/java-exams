@@ -51,7 +51,7 @@ public class TAreaServiceImpl implements TAreaService {
 	@Transactional
 	public boolean modifyArea(TArea area) {
 		if (null != area && area.getAreaId() > 0) {
-			area.setLastEditTime(area.getCreateTime());
+			area.setLastEditTime(Calendar.getInstance().getTime());
 			try {
 				int effectedNum = areaDao.updateArea(area);
 				if (effectedNum > 0) {
