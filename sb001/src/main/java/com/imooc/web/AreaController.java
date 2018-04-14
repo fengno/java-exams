@@ -24,6 +24,11 @@ public class AreaController {
 	@Autowired
 	private TAreaService areaService;
 	
+	@GetMapping(value= {"/exception"})
+	private Object genException() {
+		return 1/0;
+	}
+	
 	@GetMapping(value= {"/list"})
 	private Map<String, Object> listArea() {
 		List<TArea> list = areaService.getAreaList();
