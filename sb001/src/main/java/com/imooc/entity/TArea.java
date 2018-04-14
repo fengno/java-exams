@@ -2,10 +2,15 @@ package com.imooc.entity;
 
 import java.util.Date;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
+
 public class TArea {
 
 	private Integer areaId;
+	@JSONField(name="name")
 	private String areaName;
+	@JSONField(name="priority")
 	private Integer priority;
 	private Date createTime;
 	private Date lastEditTime;
