@@ -36,6 +36,13 @@ public class AreaControllerTest {
 	}
 	
 	@Test
+	public void genAreaException() {
+		ResponseEntity<String> respEnt = temp.getForEntity("/area/exception/area", String.class);
+		Assert.assertEquals(respEnt.getStatusCode(), HttpStatus.OK);
+		System.out.println(respEnt.getBody());
+	}
+	
+	@Test
 	public void listArea() {
 		ResponseEntity<String> respEnt = temp.getForEntity("/area/list", String.class);
 		Assert.assertEquals(respEnt.getStatusCode(), HttpStatus.OK);
