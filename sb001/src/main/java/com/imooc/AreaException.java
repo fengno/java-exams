@@ -1,13 +1,12 @@
 package com.imooc;
 
-public class AreaException extends RuntimeException {
-	
-	private String msg;
-
+public class AreaException extends Exception {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -6201866529227235800L;
+	private static final long serialVersionUID = 5389942716262107185L;
+	
+	private String msg;
 
 	public AreaException() {
 		super();

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.imooc.AreaRuntimeException;
 import com.imooc.dao.TAreaDao;
 import com.imooc.entity.TArea;
 
@@ -44,6 +45,34 @@ public class TAreaServiceImpl implements TAreaService {
 			}
 		} else {
 			throw new RuntimeException("区域信息不能为空！");
+		}
+	}
+	
+	@Override
+	@Transactional//通过rollbackFor指定针对哪些异常(Exception也可)进行回滚，默认是RuntimeException(rollbackFor=Exception.class)
+	public void testTransaction() {
+		TArea area = new TArea();
+		area.setPriority(1);
+		area.setAreaName("test transaction: throw RuntimeException");
+		boolean result = addArea(area );
+		System.out.println("add area:" + result);
+		int divideByZero = 1/0; //抛出除０异常，并被统一处理(GlobalExceptionHandler)
+		System.out.println(divideByZero);
+	}
+	
+	@Override
+	@Transactional(rollbackFor= {AreaRuntimeException.class}, noRollbackFor= {RuntimeException.class})//产生AreaRuntimeException时才回滚
+	public void testTransactionAreaRuntimeException() {
+		TArea area = new TArea();
+		area.setPriority(1);
+		area.setAreaName("test transaction: throw RuntimeException");
+		boolean result = addArea(area );
+		System.out.println("add area:" + result);
+		try {
+			int divideByZero = 1/0; //抛出除０异常，并被统一处理(GlobalExceptionHandler)
+			System.out.println(divideByZero);
+		} catch (Exception e) {
+			throw new AreaRuntimeException("area runtime exception");
 		}
 	}
 

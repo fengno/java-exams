@@ -29,6 +29,20 @@ public class AreaControllerTest {
 	private RestTester tester;
 	
 	@Test
+	public void testTransactionAreaRuntimeException() {
+		ResponseEntity<String> respEnt = temp.getForEntity("/area/transaction/arearun", String.class);
+		Assert.assertEquals(respEnt.getStatusCode(), HttpStatus.OK);
+		Assert.assertTrue(respEnt.getBody().contains("false"));
+	}
+	
+	@Test
+	public void testTransaction() {
+		ResponseEntity<String> respEnt = temp.getForEntity("/area/transaction", String.class);
+		Assert.assertEquals(respEnt.getStatusCode(), HttpStatus.OK);
+		Assert.assertTrue(respEnt.getBody().contains("false"));
+	}
+	
+	@Test
 	public void genException() {
 		ResponseEntity<String> respEnt = temp.getForEntity("/area/exception", String.class);
 		Assert.assertEquals(respEnt.getStatusCode(), HttpStatus.OK);
@@ -37,7 +51,7 @@ public class AreaControllerTest {
 	
 	@Test
 	public void genAreaException() {
-		ResponseEntity<String> respEnt = temp.getForEntity("/area/exception/area", String.class);
+		ResponseEntity<String> respEnt = temp.getForEntity("/area/areaexception", String.class);
 		Assert.assertEquals(respEnt.getStatusCode(), HttpStatus.OK);
 		System.out.println(respEnt.getBody());
 	}

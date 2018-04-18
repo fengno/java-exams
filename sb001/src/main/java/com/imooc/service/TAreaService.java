@@ -12,6 +12,9 @@ public interface TAreaService {
 	
 	boolean addArea(TArea area);
 	
+	void testTransaction();
+	void testTransactionAreaRuntimeException();
+	
 	boolean modifyArea(TArea area);
 	
 	boolean deleteArea(int areaId);

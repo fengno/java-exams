@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.alibaba.fastjson.JSON;
-import com.imooc.AreaException;
+import com.imooc.AreaRuntimeException;
 import com.imooc.entity.TArea;
 import com.imooc.service.TAreaService;
 
@@ -25,18 +25,28 @@ public class AreaController {
 	@Autowired
 	private TAreaService areaService;
 	
+	@GetMapping(value= {"/transaction/arearun"})
+	private void testTransactionAreaRuntimeException() {
+		areaService.testTransactionAreaRuntimeException();
+	}
+	
+	@GetMapping(value= {"/transaction"})
+	private void testTransaction() {
+		areaService.testTransaction();
+	}
+	
 	@GetMapping(value= {"/exception"})
 	private Object genException() {
 		return 1/0;
 	}
 	
-	@GetMapping(value= {"/exception/area"})
+	@GetMapping(value= {"/areaexception"})
 	private Object genAreaException() {
 		int tmp = 0;
 		try {
 			tmp = 1/0;
 		} catch (Exception e) {
-			AreaException ex = new AreaException("area runtime exception test");
+			AreaRuntimeException ex = new AreaRuntimeException("area runtime exception test");
 			throw ex;
 		}
 		return tmp;
