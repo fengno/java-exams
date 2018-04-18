@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -90,8 +91,29 @@ public class AreaController {
 		return modelMap;
 	}
 	
-	@DeleteMapping
-	private Map<String, Object> removeArea(Integer id) {
+	@PostMapping(value="/modify")
+	private Map<String, Object> modifyAreaByPost(@RequestBody TArea area) {
+		Map<String, Object> modelMap = new HashMap<>();
+		modelMap.put("result", areaService.modifyArea(area));
+		return modelMap;
+	}
+	
+	@DeleteMapping(value="/{areaId}")
+	private Map<String, Object> removeArea(@PathVariable("areaId") Integer id) {
+		Map<String, Object> modelMap = new HashMap<>();
+		modelMap.put("result", areaService.deleteArea(id));
+		return modelMap;
+	}
+	
+	@GetMapping(value="/remove")
+	private Map<String, Object> removeAreaByGet(Integer id) {
+		Map<String, Object> modelMap = new HashMap<>();
+		modelMap.put("result", areaService.deleteArea(id));
+		return modelMap;
+	}
+	
+	@PostMapping(value="/remove")
+	private Map<String, Object> removeAreaByPost(Integer id) {
 		Map<String, Object> modelMap = new HashMap<>();
 		modelMap.put("result", areaService.deleteArea(id));
 		return modelMap;

@@ -136,7 +136,7 @@ public class AreaControllerTest {
 		Assert.assertEquals(respEnt.getStatusCode(), HttpStatus.OK);
 		System.out.println(respEnt.getBody());
 		
-		temp.delete("/area?id=" + areaId);
+		temp.delete("/area/" + areaId);
 		
 		respEnt = temp.getForEntity("/area/byid?id=" + areaId, String.class);
 		Assert.assertEquals(respEnt.getStatusCode(), HttpStatus.OK);
@@ -145,12 +145,12 @@ public class AreaControllerTest {
 	
 	@Test
 	public void removeArea002() {
-		int areaId = 5;
+		int areaId = 6;
 		ResponseEntity<String> respEnt = temp.getForEntity("/area/byid?id=" + areaId, String.class);
 		Assert.assertEquals(respEnt.getStatusCode(), HttpStatus.OK);
 		System.out.println(respEnt.getBody());
 		
-		respEnt = tester.exchange("http://127.0.0.1:8082/demo/area?id=" + areaId, HttpMethod.DELETE, String.class);
+		respEnt = tester.exchange("http://127.0.0.1:8082/demo/area/" + areaId, HttpMethod.DELETE, String.class);
 		Assert.assertEquals(respEnt.getStatusCode(), HttpStatus.OK);
 		System.out.println(respEnt.getBody());
 		
