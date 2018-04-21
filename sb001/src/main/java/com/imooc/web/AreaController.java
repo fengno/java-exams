@@ -6,6 +6,8 @@ import java.util.Map;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,6 +27,7 @@ import com.imooc.service.TAreaService;
 @RestController
 @RequestMapping("/area")
 public class AreaController {
+	private Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Autowired
 	private TAreaService areaService;
@@ -57,7 +60,8 @@ public class AreaController {
 	}
 	
 	@GetMapping(value= {"/list"})
-	private Map<String, Object> listArea() {
+	public Map<String, Object> listArea() {
+		logger.info("list area......");
 		List<TArea> list = areaService.getAreaList();
 		Map<String, Object> modelMap = new HashMap<>();
 		modelMap.put("areaList", list);
@@ -65,11 +69,12 @@ public class AreaController {
 	}
 	
 	@GetMapping(value= {"/byid"})
-	private Map<String, Object> getAreaById(Integer id) {
+	public String getAreaById(Integer id) {
+		logger.info("query area by id......");
 		TArea area = areaService.getAreaById(id);
 		Map<String, Object> modelMap = new HashMap<>();
 		modelMap.put("area", area);
-		return modelMap;
+		return JSON.toJSONString(modelMap);
 	}
 	
 	@PostMapping
