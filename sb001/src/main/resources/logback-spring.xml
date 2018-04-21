@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!-- 
+	需求： 
+		1.日志按天滚动分割 
+		2.info和error日志输出到不同文件 
+-->
+<configuration>
+
+	<appender name="consoleLog"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>
+				%d [%t] %-5p [%c:%L] - %m%n
+			</pattern>
+		</layout>
+	</appender>
+
+	<appender name="infoLog2File"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>DENY</onMatch>
+			<onMismatch>ACCEPT</onMismatch>
+		</filter>
+		<encoder>
+			<pattern>
+				%msg%n
+			</pattern>
+		</encoder>
+		<!--滚动策略 -->
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!--路径 -->
+			<fileNamePattern>logs/info/info.%d.log</fileNamePattern>
+		</rollingPolicy>
+	</appender>
+
+	<appender name="errorLog2File"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>ERROR</level>
+		</filter>
+		<encoder>
+			<pattern>
+				%d [%t] %-5p [%c:%L] - %m%n
+			</pattern>
+		</encoder>
+		<!--滚动策略 -->
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!--路径 -->
+			<fileNamePattern>logs/error/error.%d.log</fileNamePattern>
+		</rollingPolicy>
+	</appender>
+	
+	<logger name="com.imooc" additivity="true" level="info">
+		<appender-ref ref="infoLog2File"/>
+		<appender-ref ref="errorLog2File" />
+	</logger>
+
+	<root level="info">
+		<appender-ref ref="consoleLog" />
+	</root>
+
+</configuration>

@@ -27,6 +27,10 @@ public class HttpAspect {
 	
 	@Before("pointCut01()")
 	public void before(JoinPoint jp) {
+		logger.debug("test info log......");
+		logger.info("test info log......");
+		logger.warn("test warn log......");
+		logger.error("test error log......");
 		logger.info("before......");
 		//记录请求
 		ServletRequestAttributes attrs = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
