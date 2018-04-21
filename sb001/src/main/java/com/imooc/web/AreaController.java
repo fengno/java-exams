@@ -4,7 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -70,9 +73,14 @@ public class AreaController {
 	}
 	
 	@PostMapping
-	private Map<String, Object> addArea(@RequestBody TArea area) {
+	private Map<String, Object> addArea(@RequestBody @Valid TArea area, BindingResult bindingResult) {
 		Map<String, Object> modelMap = new HashMap<>();
-		modelMap.put("result", areaService.addArea(area));
+		if (bindingResult.hasErrors()) {
+			modelMap.put("result", false);
+			modelMap.put("msg", bindingResult.getFieldError().getDefaultMessage());
+		} else {
+			modelMap.put("result", areaService.addArea(area));
+		}
 		return modelMap;
 	}
 	

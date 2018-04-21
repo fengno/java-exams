@@ -83,6 +83,18 @@ public class AreaControllerTest {
 	}
 	
 	@Test
+	public void addAreaWithWrongPriority() {
+		Map<String, Object> request = new HashMap<>();
+		request.put("areaName", "new area with wrong priority");
+		request.put("priority", 0);
+		Class<?> responseType = String.class;
+		Object urlVariables = null;
+		ResponseEntity<?> respEnt = temp.postForEntity("/area", request, responseType, urlVariables);
+		Assert.assertEquals(respEnt.getStatusCode(), HttpStatus.OK);
+		System.out.println(respEnt.getBody());
+	}
+	
+	@Test
 	public void addAreaJson() {
 		Map<String, Object> request = new HashMap<>();
 		request.put("name", "new area2");

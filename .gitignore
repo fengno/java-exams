@@ -46,3 +46,5 @@ sb001/.mvn/wrapper/maven-wrapper.jar
 sb001/.mvn/wrapper/maven-wrapper.jar
 sb002/.mvn/wrapper/maven-wrapper.jar
 sb001/.mvn/wrapper/maven-wrapper.jar
+sb002/src/main/java/META-INF/MANIFEST.MF
+sb001/src/main/java/META-INF/MANIFEST.MF

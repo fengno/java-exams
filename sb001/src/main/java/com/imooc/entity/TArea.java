@@ -2,6 +2,8 @@ package com.imooc.entity;
 
 import java.util.Date;
 
+import javax.validation.constraints.Min;
+
 import com.alibaba.fastjson.annotation.JSONField;
 
 
@@ -11,6 +13,7 @@ public class TArea {
 	@JSONField(name="name")
 	private String areaName;
 	@JSONField(name="priority")
+	@Min(value=1, message="优先级取值需要大于0")
 	private Integer priority;
 	private Date createTime;
 	private Date lastEditTime;
