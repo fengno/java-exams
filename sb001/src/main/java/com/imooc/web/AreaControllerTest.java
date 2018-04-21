@@ -50,7 +50,7 @@ public class AreaControllerTest {
 	}
 	
 	@Test
-	public void genAreaException() {
+	public void genAreaRuntimeException() {
 		ResponseEntity<String> respEnt = temp.getForEntity("/area/areaexception", String.class);
 		Assert.assertEquals(respEnt.getStatusCode(), HttpStatus.OK);
 		System.out.println(respEnt.getBody());
