@@ -23,28 +23,23 @@ hs_err_pid*
 
 # folders
 target
+.mvn/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
 *.prefs
 spring-mvc002/.tern-project
-spring-mvc001/.classpath
-spring-mvc001/.settings/.jsdtscope
+.jsdtscope
 *.component
-spring-mvc001/.project
-spring-mvc001/.settings/org.eclipse.wst.jsdt.ui.superType.name
+.settings/
 *.container
-spring-mvc001/.settings/org.eclipse.wst.common.project.facet.core.xml
-sb002/.mvn/wrapper/maven-wrapper.properties
-sb002/.mvn/wrapper/maven-wrapper.jar
-sb002/.mvn/wrapper/maven-wrapper.jar
-sb002/mvnw.cmd
-sb002/mvnw
-sb002/.mvn/wrapper/maven-wrapper.jar
-sb002/.mvn/wrapper/maven-wrapper.jar
-sb001/.mvn/wrapper/maven-wrapper.properties
-sb001/mvnw.cmd
-sb001/mvnw
-sb001/.mvn/wrapper/maven-wrapper.jar
-sb001/.mvn/wrapper/maven-wrapper.jar
-sb002/.mvn/wrapper/maven-wrapper.jar
-sb001/.mvn/wrapper/maven-wrapper.jar
-sb002/src/main/java/META-INF/MANIFEST.MF
-sb001/src/main/java/META-INF/MANIFEST.MF
+
+mvnw.cmd
+mvnw
