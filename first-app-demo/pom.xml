@@ -6,7 +6,22 @@
 	<groupId>com.imooc</groupId>
 	<artifactId>first-app-demo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	
+	<!-- 
+		模块化
+		将packaging修改成pom
+		拆分成
+			模型层：model
+			持久层：persistence
+			表示层：web
+	 -->
+	<packaging>pom</packaging>
+	
+	<modules>
+		<module>first-app-web</module>
+		<module>first-app-persistence</module>
+		<module>first-app-domain</module>
+	</modules>
 
 	<name>first-app-demo</name>
 	<description>Demo project for Spring Boot</description>
@@ -43,7 +58,6 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>3.4</version>
 		</dependency>
 	</dependencies>
 
@@ -55,6 +69,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>
