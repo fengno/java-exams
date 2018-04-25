@@ -15,7 +15,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.imooc</groupId>
-			<artifactId>first-app-domain</artifactId>
+			<artifactId>first-app-model</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>

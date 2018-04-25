@@ -14,7 +14,7 @@
 	<modules>
 		<module>first-app-web</module>
 		<module>first-app-persistence</module>
-		<module>first-app-domain</module>
+		<module>first-app-model</module>
 	</modules>
 
 	<name>first-app-demo</name>
