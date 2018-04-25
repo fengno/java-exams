@@ -10,7 +10,13 @@
 
 	<artifactId>first-app-web</artifactId>
 
+<!-- 
+打包成war包的话，需要增加目录结构 webapp/WEB-INF/web.xml
+ -->
+ 	<packaging>war</packaging>
+<!-- 
 	<packaging>jar</packaging>
+ -->
 
 	<dependencies>
 		<dependency>
